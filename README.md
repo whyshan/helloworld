@@ -9,6 +9,48 @@
 返回：True
 "BarackObama"
 返回：False
+```
+#include <stdio.h>
+#include <stdbool.h>
+
+bool mutex_char(char *string)
+{
+        char *p1 , *p2;
+        p1 = p2 = string;
+        p2++;
+        while(*p1 != '\0')
+        {   
+                while(*p2 != '\0')
+                {   
+                        if(*p1 == *p2)
+                        {   
+                                return false;
+                        }   
+                        else
+                        {   
+                                p2++;
+                        }   
+                }   
+                p1++;
+        }   
+        return true;
+}
+
+int main(int argc , char **argv)
+{
+        bool ret;
+        char string[3000] = ""; 
+        while(1)
+        {   
+                fgets(string, 3000, stdin);
+        fprintf(stderr, "string..%s\n", string);
+    
+        ret = mutex_char(string);
+        fprintf(stderr, "ret..%d\n", ret);
+        }   
+}
+
+```
 
 ### 二 反转字符串
 
