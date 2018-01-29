@@ -70,6 +70,52 @@ int main(int argc , char **argv)
 "This is nowcoder","is This nowcoder"
 返回：true
 "Here you are","Are you here"
+```
+class Same {
+public:
+    bool checkSam(string stringA, string stringB) {
+        // write code here
+        string src = stringA;
+        string dest = stringB;
+        char A[256] = {0};
+        char B[256] = {0};
+        
+        for(int i = 0; src[i] != '\0'; i++)
+        {
+         	if(A[src[i]] != 0)
+            {
+               A[src[i]] += 1; 
+            }
+            else
+            {
+                A[src[i]] = 1;
+            }
+        }
+        
+        for(int j = 0; dest[j] != '\0'; j++)
+        {
+            if(B[dest[j]] != 0)
+            {
+                B[dest[j]] += 1;
+            }
+            else
+            {
+                B[dest[j]] = 1;
+            }            
+        }
+        
+        for(int k = 0; k < 256; k++)
+        {
+            if(A[k] != B[k])
+            {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+};
+```
 ### 四 空格替换
 
 题目描述
